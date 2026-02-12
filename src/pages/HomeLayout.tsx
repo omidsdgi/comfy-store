@@ -8,7 +8,9 @@ const HomeLayout = () => {
             Comfy
         </span>
             </nav>
+                <section className='align-element py-20'>
             <Outlet/>
+                </section>
         </>
     );
 };
