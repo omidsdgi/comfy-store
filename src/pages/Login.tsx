@@ -11,8 +11,10 @@ const Login = () => {
                 <div className="mt-4">
                     <SubmitBtn text="Login"/>
                 </div>
-                <button type='button' className=' btn btn-block btn-secondary'>guest user</button>
-                <p className=' text-center'>Not a member yet? <Link to='/register' className=' ml-2 link-hover link-primary capitalize'>Register</Link></p>
+                <button type='button' className=' btn btn-block btn-accent'>guest user</button>
+                <p className=' text-center'>Not a member yes?{' '}
+                    <Link to='/register' className=' ml-2 link-hover link-primary capitalize'>Register</Link>
+                </p>
             </Form>
         </section>
     )
