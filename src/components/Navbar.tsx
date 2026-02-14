@@ -2,13 +2,27 @@ import {NavLink} from "react-router-dom";
 import {FaBarsStaggered} from "react-icons/fa6";
 import {BsCart, BsMoonFill, BsSunFill} from "react-icons/bs";
 import NavLinks from "./NavLinks.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
+const getThemeFromLocalStorage = () => {
+    return localStorage.getItem("theme" )|| themes.winter
+}
+
+const themes={
+    winter:'winter',
+    dracula:'dracula',
+}
 const Navbar = () => {
-    const[theme, setTheme]=useState(false)
+    const[theme, setTheme]=useState(getThemeFromLocalStorage());
     const handleTheme=()=>{
-        setTheme(!theme)
+        const {winter, dracula} = themes
+        const newTheme = theme === winter ? dracula : winter
+        setTheme(newTheme)
     }
+    useEffect(()=>{
+document.documentElement.setAttribute('data-theme',theme)
+        localStorage.setItem('theme',theme)
+    },[theme])
 
     return (
         <nav className="bg-base-200 ">
