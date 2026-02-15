@@ -5,7 +5,12 @@ import NavLinks from "./NavLinks.tsx";
 import {useEffect, useState} from "react";
 
 const getThemeFromLocalStorage = () => {
-    return localStorage.getItem("theme" )|| themes.winter
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) return storedTheme;
+
+    // بررسی تم پیش‌فرض سیستم
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return systemPrefersDark ? themes.dracula : themes.winter;
 }
 
 const themes={
@@ -14,6 +19,8 @@ const themes={
 }
 const Navbar = () => {
     const[theme, setTheme]=useState(getThemeFromLocalStorage());
+    const isDark = theme === themes.dracula;
+    
     const handleTheme=()=>{
         const {winter, dracula} = themes
         const newTheme = theme === winter ? dracula : winter
@@ -28,7 +35,7 @@ document.documentElement.setAttribute('data-theme',theme)
         <nav className="bg-base-200 ">
             <div className="navbar align-element">
                 <div className="navbar-start">
-                    <NavLink to='/' className='hidden lg:flex items-center btn btn-primary text-3xl'>c </NavLink>
+                    <NavLink to='/' className='hidden lg:flex items-center btn btn-primary  text-3xl'>c </NavLink>
                     <div className="dropdown">
                         <label tabIndex={0} className='btn btn-ghost lg:hidden'>
                             <FaBarsStaggered className="h-6 w-6"/>
@@ -44,7 +51,7 @@ document.documentElement.setAttribute('data-theme',theme)
                 </div>
                 <div className="navbar-end"></div>
                 <label className='swap swap-rotate'>
-                    <input type="checkbox" onChange={handleTheme}/>
+                    <input type="checkbox" onChange={handleTheme} checked={isDark} readOnly/>
                     <BsSunFill className="h-4 w-4 swap-on"/>
                     <BsMoonFill className="h-4 w-4 swap-off"/>
                 </label>
