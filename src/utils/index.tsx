@@ -15,3 +15,9 @@ export const formatPrice=(price:number):string=>{
         }).format(price / 100)
     return dollarsAmount
 }
+export const generateAmountOptions=(number:number)=>{
+    return Array.from({length:number},(_,index)=>{
+        const amount = index + 1
+        return <option key={amount} value={amount} >{amount}</option>
+    })
+}

@@ -1,4 +1,4 @@
-import {customFetch, formatPrice} from "../utils";
+import {customFetch, formatPrice, generateAmountOptions} from "../utils";
 import {Link, type LoaderFunctionArgs, useLoaderData} from "react-router-dom";
 import React, {useState} from "react";
 
@@ -80,9 +80,7 @@ const [productColor, setProductColor] = useState(colors[0])
                             <h4 className='text-md font-medium tracking-wider capitalize'> {amount}</h4>
                         </label>
                         <select className="select select-bordered select-secondary select-md" id="amount" value={amount} onChange={handleAmount} >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            {generateAmountOptions(50)}
                         </select>
                     </div>
                     <div className="mt-10">
