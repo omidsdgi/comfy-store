@@ -1,5 +1,6 @@
 import Hero from "../components/Hero.tsx";
 import {customFetch} from "../utils";
+import {FeaturedProducts} from "../components";
 
 const url= '/products?featured=true';
 export const loader=async ()=>{
@@ -12,6 +13,7 @@ const Landing = () => {
     return (
         <>
            <Hero/>
+            <FeaturedProducts/>
         </>
     );
 };
