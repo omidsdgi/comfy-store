@@ -1,6 +1,6 @@
 import {customFetch, formatPrice} from "../utils";
 import {Link, type LoaderFunctionArgs, useLoaderData} from "react-router-dom";
-import {useState} from "react";
+import React, {useState} from "react";
 
 interface ProductProps {
     productId: number;
@@ -28,6 +28,11 @@ const{singleProduct}=useLoaderData() as {singleProduct:ProductProps};
 const {image, title,price, description, colors, company} = singleProduct;
 const dollarsAmount=formatPrice(price)
 const [productColor, setProductColor] = useState(colors[0])
+    const [amount, setAmount] = useState(1)
+
+    const handleAmount=(e:React.ChangeEvent<HTMLSelectElement>)=>{
+    setAmount(parseInt(e.target.value))
+    }
 
     return (
         <section>
@@ -68,6 +73,22 @@ const [productColor, setProductColor] = useState(colors[0])
                                 ></button>
                             })}
                         </div>
+                    </div>
+                    {/*AMOUNT*/}
+                    <div className='form-control w-full max-w-xs'>
+                        <label className='label' htmlFor='amount'>
+                            <h4 className='text-md font-medium tracking-wider capitalize'> {amount}</h4>
+                        </label>
+                        <select className="select select-bordered select-secondary select-md" id="amount" value={amount} onChange={handleAmount} >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div className="mt-10">
+                        <button className='btn btn-secondary btn-md' onClick={()=>console.log('add to bag')}>
+                            Add to bag
+                        </button>
                     </div>
                 </div>
             </div>
