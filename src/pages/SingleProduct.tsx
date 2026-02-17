@@ -27,7 +27,35 @@ const{singleProduct}=useLoaderData() as {singleProduct:ProductProps};
 const {image, title,price, description, colors, company} = singleProduct;
 const dollarsAmount=formatPrice(price)
     return (
-<h1>SingleProduct</h1>
+        <section>
+            <div className="text-md breadcrumbs">
+                <ul>
+                    <li>
+                        <Link to='/'>Home</Link>
+                    </li>
+                    <li>
+                        <Link to='/products'>Products</Link>
+                    </li>
+                </ul>
+            </div>
+            {/*PRODUCT*/}
+            <div className='mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-16'>
+                {/*IMAGE*/}
+                <img
+                    src={image}
+                    alt={title}
+                    className=" h-96 w-96 object-cover rounded-lg lg:rounded-lg:w-full"
+                />
+                {/*PRODUCT*/}
+                <div>
+                    <h1 className='capitalize text-3xl font-bold'>{title}</h1>
+                    <h4 className='text-xl text-neutral-content font-bold mt-2'>{company}</h4>
+                    <p className='mt-3 text-xl'>{dollarsAmount}</p>
+                    <p className='mt-6 leading-8'>{description}</p>
+                    <p>{colors}</p>
+                </div>
+            </div>
+        </section>
     );
 };
 
