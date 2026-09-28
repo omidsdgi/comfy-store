@@ -1,5 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {
+    About,
+    Cart,
     Checkout,
     Error,
     HomeLayout,
@@ -10,8 +12,7 @@ import {
     Register,
     SingleProduct
 } from "./pages/index.jsx";
-import Cart from "./pages/Cart.jsx";
-import About from "./pages/About.jsx";
+
 
 const App=() =>{
 
@@ -66,3 +67,4 @@ const App=() =>{
     return        <RouterProvider router={router}/>
 }
 export default App;
+
