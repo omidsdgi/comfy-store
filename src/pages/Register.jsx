@@ -12,8 +12,8 @@ const Register = () => {
                 <div className="mt-4">
                     <SubmitBtn text='Register' />
                 </div>
-             <p className="text-center" >Not a member yet
-                 
+             <p className="text-center" >Not a member yet?
+
              </p>
             </Form>
         </section>
