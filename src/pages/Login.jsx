@@ -29,7 +29,7 @@ const Login = () => {
                 >
                     guest user
                 </button>
-                <p>
+                <p className="text-center">
                     Not a member yet?
                     <Link
                         to="/register"
