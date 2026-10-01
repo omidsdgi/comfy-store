@@ -20,6 +20,7 @@ const Navbar = () => {
                             className='btn btn-ghost lg:hidden'
                         >
                             <FaBarsStaggered className='h-6 w-6'/>
+                        </label>
                             <ul
                                 tabIndex={0}
                                 className='menu menu-sm dropdown-content mt-5 z-[1] p-2 shadow bg-base-200'
@@ -27,7 +28,6 @@ const Navbar = () => {
                                 nav links
 
                             </ul>
-                        </label>
                     </div>
                 </div>
                 <div className="navbar-centet hidden lg:flex">
