@@ -2,7 +2,7 @@ import {FaBarsStaggered} from "react-icons/fa6";
 import {BsCart3, BsMoonFill, BsSunFill} from "react-icons/bs";
 import NavLinks from "./NavLinks.jsx";
 import {NavLink} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const themes={
     winter:'winter',
@@ -15,9 +15,14 @@ const Navbar = () => {
     const handleTheme= ()=>{
         const {winter, dracula} = themes
         const newTheme = theme === winter ? dracula : winter
-        document.documentElement.setAttribute('data-theme',newTheme)
         setTheme(newTheme)
     }
+
+    useEffect(()=>{
+        document.documentElement.setAttribute('data-theme',theme)
+        localStorage.setItem('theme', theme)
+
+    },[theme])
     return (
         <section className='bg-base-200'>
             <nav className='navbar align-element'>
