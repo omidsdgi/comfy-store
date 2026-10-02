@@ -1,9 +1,15 @@
 import {FaBarsStaggered} from "react-icons/fa6";
-import {BsCart3} from "react-icons/bs";
+import {BsCart3, BsMoonFill, BsSunFill} from "react-icons/bs";
 import NavLinks from "./NavLinks.jsx";
 import {NavLink} from "react-router-dom";
+import {useState} from "react";
 
 const Navbar = () => {
+    const [theme, setTheme] = useState(false)
+
+    const handleTheme= ()=>{
+        setTheme(!theme)
+    }
     return (
         <section className='bg-base-200'>
             <nav className='navbar align-element'>
@@ -23,13 +29,13 @@ const Navbar = () => {
                         >
                             <FaBarsStaggered className='h-6 w-6'/>
                         </label>
-                            <ul
-                                tabIndex={0}
-                                className='menu menu-sm dropdown-content mt-5 z-[1] p-2 shadow bg-base-200 rounded-box w-52'
-                            >
-                               <NavLinks/>
+                        <ul
+                            tabIndex={0}
+                            className='menu menu-sm dropdown-content mt-5 z-[1] p-2 shadow bg-base-200 rounded-box w-52'
+                        >
+                            <NavLinks/>
 
-                            </ul>
+                        </ul>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -38,6 +44,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {/*THEME SETUP*/}
+                    <label className='swap swap-rotate'>
+                        <input type="checkbox" onChange={handleTheme}/>
+                        <BsSunFill className="swap-on h-4 w-4" />
+                        <BsMoonFill className='swap-off h-4 w-4' />
+                    </label>
                     {/*CART LINK*/}
                     <NavLink
                         to='/cart'
