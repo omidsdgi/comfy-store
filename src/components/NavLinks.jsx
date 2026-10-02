@@ -1,3 +1,4 @@
+import {NavLink} from 'react-router-dom';
 
 const links=[
     {id:1, url:'/', text:'home'},
@@ -16,9 +17,9 @@ const NavLinks = () => {
                 return <li
                     key={id}
                     >
-                <NavLinks classname='capitalize' to={url}>
+                <NavLink classname='capitalize' to={url}>
                     {text}
-                </NavLinks>
+                </NavLink>
                 </li>
             })}
         </>
