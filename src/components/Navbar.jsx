@@ -9,8 +9,12 @@ const themes={
     dracula:'dracula'
 }
 
+const getThemeFromLocalStorage = () => {
+    return localStorage.getItem("theme") || themes.dracula;
+}
+
 const Navbar = () => {
-    const [theme, setTheme] = useState(themes.winter)
+    const [theme, setTheme] = useState(getThemeFromLocalStorage());
 
     const handleTheme= ()=>{
         const {winter, dracula} = themes
