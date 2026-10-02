@@ -4,11 +4,19 @@ import NavLinks from "./NavLinks.jsx";
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
 
+const themes={
+    winter:'winter',
+    dracula:'dracula'
+}
+
 const Navbar = () => {
-    const [theme, setTheme] = useState(false)
+    const [theme, setTheme] = useState(themes.winter)
 
     const handleTheme= ()=>{
-        setTheme(!theme)
+        const {winter, dracula} = themes
+        const newTheme = theme === winter ? dracula : winter
+        document.documentElement.setAttribute('data-theme',newTheme)
+        setTheme(newTheme)
     }
     return (
         <section className='bg-base-200'>
