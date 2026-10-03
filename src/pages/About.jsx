@@ -1,8 +1,22 @@
 const About = () => {
     return (
-        <h1 className='text-4xl'>
-            About
-        </h1>
+        <>
+        <div className='flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center'>
+          <h1 className="text-4xl font-bold leading-none tracking-tight sm:text-6xl">
+              We love
+          </h1>
+            <div className="stats bg-primary shadow">
+                <div className="stat">
+                    <div className="stat-title text-primary-content text-4xl font-bold tracking-widest">
+                        comfy
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p className="mt-6 text-lg leading-8 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda cum dolor illo laudantium magnam nemo nulla perspiciatis, quidem ratione sed sit! Ab alias animi beatae, eligendi est facilis id mollitia necessitatibus rem sapiente similique sit soluta temporibus unde voluptates?
+        </p>
+        </>
     );
 };
 
