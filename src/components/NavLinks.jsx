@@ -17,7 +17,7 @@ const NavLinks = () => {
                 return <li
                     key={id}
                 >
-                    <NavLink classname='capitalize' to={url}>
+                    <NavLink className='capitalize' to={url}>
                         {text}
                     </NavLink>
                 </li>
