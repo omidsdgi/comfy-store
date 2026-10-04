@@ -12,7 +12,8 @@ import {
     Register,
     SingleProduct
 } from "./pages/index.jsx";
-
+import {ErrorElement} from "./components";
+import {loader as landingLoader} from "./pages/Landing"
 
 const App=() =>{
 
@@ -25,31 +26,15 @@ const App=() =>{
                 {
                     index:true,
                     element:<Landing/>,
+                    errorElement:<ErrorElement/>,
+                    loader:landingLoader
                 },
-                {
-                    path:'products',
-                    element:<Products/>,
-                },
-                {
-                    path:'products/:id',
-                    element:<SingleProduct/>,
-                },
-                {
-                    path:'cart',
-                    element:<Cart/>,
-                },
-                {
-                  path:'about',
-                  element:<About/>,
-                },
-                {
-                    path:'checkout',
-                    element:<Checkout/>,
-                },
-                {
-                    path:'orders',
-                    element:<Orders/>,
-                }
+                {path:'products', element:<Products/>},
+                {path:'products/:id',element:<SingleProduct/>},
+                {path:'cart', element:<Cart/>},
+                {path:'about', element:<About/>},
+                {path:'checkout', element:<Checkout/>},
+                {path:'orders', element:<Orders/>}
                 ]
         },
         {
