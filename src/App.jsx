@@ -14,6 +14,7 @@ import {
 } from "./pages/index.jsx";
 import {ErrorElement} from "./components";
 import {loader as landingLoader} from "./pages/Landing"
+import {loader as singleProductLoader} from './pages/SingleProduct'
 
 const App=() =>{
 
@@ -30,7 +31,7 @@ const App=() =>{
                     loader:landingLoader
                 },
                 {path:'products', element:<Products/>},
-                {path:'products/:id',element:<SingleProduct/>},
+                {path:'products/:id',element:<SingleProduct/>,errorElement:<ErrorElement/>, loader:singleProductLoader},
                 {path:'cart', element:<Cart/>},
                 {path:'about', element:<About/>},
                 {path:'checkout', element:<Checkout/>},
