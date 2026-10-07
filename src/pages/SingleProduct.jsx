@@ -1,6 +1,7 @@
 import {customFetch, formatPrice} from "../utils/index.jsx";
 import {Link, useLoaderData} from "react-router-dom";
 import {useState} from "react";
+import log from "eslint-plugin-react/lib/util/log.js";
 
 export  const loader= async ({params})=>{
     const response = await customFetch(`/products/${params.id}`)
@@ -80,6 +81,15 @@ const SingleProduct = () => {
                         <option value="2">2</option>
                         <option value="3">3</option>
                     </select>
+                </div>
+                {/*Cart Btn*/}
+                <div className="mt-10">
+                <button
+                    className="btn btn-secondary btn-md"
+                    onClick={()=>console.log('add to bag')}
+                >
+                    Add to bag
+                </button>
                 </div>
             </div>
             </div>
