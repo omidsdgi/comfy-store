@@ -31,6 +31,13 @@ const SingleProduct = () => {
                     alt={title}
                     className='w-96 h-96 object-cover rounded-lg lg:w-full'
                 />
+            {/*Product Info*/}
+            <div>
+                <h1 className="capitalize text-3xl font-bold">{title}</h1>
+                <h4 className='text-xl text-neutral-content font-bold mt-2'>{company}</h4>
+                <p className="mt-3 text-xl">{dollarsAmount}</p>
+                <p className="mt-6 leading-8">{description}</p>
+            </div>
             </div>
         </section>
 
