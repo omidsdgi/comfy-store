@@ -1,7 +1,6 @@
-import {customFetch, formatPrice} from "../utils/index.jsx";
+import {customFetch, formatPrice, generateAmountOptions} from "../utils";
 import {Link, useLoaderData} from "react-router-dom";
 import {useState} from "react";
-import log from "eslint-plugin-react/lib/util/log.js";
 
 export  const loader= async ({params})=>{
     const response = await customFetch(`/products/${params.id}`)
@@ -77,9 +76,7 @@ const SingleProduct = () => {
                         className='select select-secondary select-bordered select-md'
                         value={amount}
                         onChange={handleAmount}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        {generateAmountOptions(20)}
                     </select>
                 </div>
                 {/*Cart Btn*/}
