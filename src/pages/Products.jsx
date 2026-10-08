@@ -1,8 +1,16 @@
+import {Filters, PaginationContainer, ProductionsContainer} from "../components";
+
+export const loader = async ({request})=>{
+    return null
+}
 const Products = () => {
+
     return (
-        <h1 className="text-4xl">
-            Products
-        </h1>
+        <>
+            <Filters/>
+            <ProductionsContainer/>
+            <PaginationContainer/>
+        </>
     );
 };
 
