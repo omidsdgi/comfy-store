@@ -1,8 +1,12 @@
+import ProductsGrid from "./ProductsGrid";
+import ProductsList from "./ProductsList";
+
 const PaginationContainer = () => {
     return (
-        <div>
-            PaginationContainer
-        </div>
+        <>
+            <ProductsList />
+            <ProductsGrid/>
+        </>
     );
 };
 
