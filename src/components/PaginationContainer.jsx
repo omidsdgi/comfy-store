@@ -1,10 +1,18 @@
 import ProductsGrid from "./ProductsGrid";
 import ProductsList from "./ProductsList";
 import {useLoaderData} from "react-router-dom";
+import {useState} from "react";
+import {BsFillGridFill, BsList} from "react-icons/bs";
 
 const PaginationContainer = () => {
     const { meta } = useLoaderData()
     const totalProducts = meta.pagination.total
+
+    const [layout, setLayout] = useState('grid')
+
+    const setActiveStyle =(pattern)=>{
+        return `text-xl btn btn-circle btn-sm`
+    }
     return (
         <>
             {/*HEADER*/}
@@ -12,9 +20,34 @@ const PaginationContainer = () => {
                 <h4 className="font-medium textarea-md">
                     {totalProducts} product {totalProducts>1 && 's'}
                 </h4>
+                <div className="flex gap-x-2">
+                    <button
+                        type="button"
+                        onClick={() =>setLayout('grid') }
+                        className={setActiveStyle('grid')}
+                    >
+                        <BsFillGridFill/>
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() =>setActiveStyle('list')}
+                        className={setActiveStyle('list')}
+                    >
+                        <BsList/>
+                    </button>
+                </div>
             </div>
-            <ProductsList />
-            <ProductsGrid/>
+            {/*PRODUCTS*/}
+            {
+                totalProducts === 0 ? (
+                    <h5 className='text-2xl mt-16'>
+                        Sorry, no products matched your search...
+                    </h5>
+                ): layout === 'grid' ? (
+                    <ProductsGrid/>
+                ) :(
+                    <ProductsList />
+                )}
         </>
     );
 };
