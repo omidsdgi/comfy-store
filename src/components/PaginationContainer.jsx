@@ -11,14 +11,17 @@ const PaginationContainer = () => {
     const [layout, setLayout] = useState('grid')
 
     const setActiveStyle =(pattern)=>{
-        return `text-xl btn btn-circle btn-sm`
+        return `text-xl btn btn-circle btn-sm ${
+            pattern ===layout 
+                ? 'btn-primary text-primary-content'
+                : 'btn-ghost text-based-content'}`
     }
     return (
         <>
             {/*HEADER*/}
             <div className="flex justify-between items-center mt-8 border-b border-base-300 pb-5">
                 <h4 className="font-medium textarea-md">
-                    {totalProducts} product {totalProducts>1 && 's'}
+                    {totalProducts} product{totalProducts>1 && 's'}
                 </h4>
                 <div className="flex gap-x-2">
                     <button
